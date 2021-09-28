@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meditation_app/config/app_color.dart';
 import 'package:meditation_app/config/size_config.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
+import 'components/colored_container.dart';
+import 'components/searchbar_section.dart';
+import 'components/section_card.dart';
+import 'components/section_title.dart';
+import 'components/session_cards_section.dart';
+import 'components/subtitle_section.dart';
+import 'components/title_section.dart';
 
 class DetailsView extends StatelessWidget {
   @override
@@ -11,16 +17,7 @@ class DetailsView extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(),
       body: Stack(
         children: [
-          Container(
-            height: SizeConfig.getHeight(context) * 0.45,
-            decoration: BoxDecoration(
-              color: AppColor.kBlueLightColor,
-              image: DecorationImage(
-                image: AssetImage("assets/images/meditation_bg.png"),
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-          ),
+          ColoredContainer(),
           SafeArea(
               child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -30,14 +27,15 @@ class DetailsView extends StatelessWidget {
                 children: [
                   SizeConfig.verticalSpace(
                       SizeConfig.getHeight(context) * 0.05),
-                  Text(
-                    'Meditation',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline4!
-                        .copyWith(fontWeight: FontWeight.w900),
-                  ),
+                  TitleSection(),
                   SizeConfig.verticalSpace(10),
+                  SubTitleSection(),
+                  SizeConfig.verticalSpace(10),
+                  SearchBarSection(),
+                  SessionCardsSection(),
+                  SizeConfig.verticalSpace(20),
+                  SectionTitle(),
+                  SectionCard(),
                 ],
               ),
             ),
