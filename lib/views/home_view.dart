@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:meditation_app/config/app_color.dart';
 import 'package:meditation_app/config/size_config.dart';
+import 'package:meditation_app/views/details_view.dart';
 import 'package:meditation_app/widgets/bottom_nav_bar.dart';
 import 'package:meditation_app/widgets/category_card.dart';
 import 'package:meditation_app/widgets/menu_icon.dart';
@@ -56,7 +57,12 @@ class HomeView extends StatelessWidget {
                         CategoryCard(
                           title: "Meditation",
                           svgSrc: "assets/icons/Meditation.svg",
-                          press: () {},
+                          press: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DetailsView();
+                            }));
+                          },
                         ),
                         CategoryCard(
                           title: "Yoga",
